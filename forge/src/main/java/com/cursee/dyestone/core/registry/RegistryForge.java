@@ -1,15 +1,12 @@
 package com.cursee.dyestone.core.registry;
 
 import com.cursee.dyestone.DyestoneForge;
-import com.cursee.dyestone.core.registry.ModBlocks;
-import com.cursee.dyestone.core.registry.ModItems;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 
 import java.util.LinkedHashSet;
@@ -20,11 +17,6 @@ import java.util.function.Consumer;
 public class RegistryForge {
 
     public static void register(IEventBus modEventBus) {
-        bind(Registries.BLOCK, consumer -> {
-            ModBlocks.register(consumer);
-        });
-        bindForItems(ModItems::register);
-        bind(Registries.CREATIVE_MODE_TAB, ModTabs::register);
     }
 
     private static <T> void bind(ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {

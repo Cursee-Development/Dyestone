@@ -1,6 +1,6 @@
 {
     "render_type": "cutout",
-    "parent": "block/redstone_dust_side_alt",
+    "parent": "dyestone:block/redstone_dust_side_alt",
     "textures": {
         "line": "block/redstone_dust_line1"
     }

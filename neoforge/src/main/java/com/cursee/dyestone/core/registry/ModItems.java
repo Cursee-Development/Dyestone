@@ -1,7 +1,5 @@
 package com.cursee.dyestone.core.registry;
 
-import com.cursee.dyestone.Dyestone;
-import com.cursee.dyestone.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;

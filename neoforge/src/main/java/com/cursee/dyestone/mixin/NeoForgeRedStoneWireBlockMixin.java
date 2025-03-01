@@ -11,8 +11,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(RedStoneWireBlock.class)
 public class NeoForgeRedStoneWireBlockMixin {
 
-    @Inject(method = "shouldConnectTo(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z", ordinal = 0))
+    @Inject(method = "shouldConnectTo(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;)Z", at = @At(value = "RETURN", ordinal = 0), cancellable = true)
     private static void injected(BlockState state, Direction p_direction, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(cir.getReturnValue() || state.getBlock() instanceof RedStoneWireBlock);
+        cir.setReturnValue(state.getBlock() instanceof RedStoneWireBlock);
     }
+
+//    @Inject(method = "getWireSignal", at = @At(value = "RETURN"), cancellable = true)
+//    private void injected2(BlockState state, CallbackInfoReturnable<Integer> cir) {
+//        cir.setReturnValue(state.getBlock() instanceof RedStoneWireBlock ? state.getValue(RedStoneWireBlock.POWER) : 0);
+//    }
 }
