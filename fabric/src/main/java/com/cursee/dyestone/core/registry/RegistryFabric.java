@@ -16,6 +16,7 @@ public class RegistryFabric {
     public static void register() {
         ModBlocks.register(bind(BuiltInRegistries.BLOCK));
         ModItems.register(boundForItem);
+        ModTabs.register(bind(BuiltInRegistries.CREATIVE_MODE_TAB));
     }
 
     private static <T> BiConsumer<T, ResourceLocation> bind(Registry<? super T> registry) {

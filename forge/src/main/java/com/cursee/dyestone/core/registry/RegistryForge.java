@@ -1,5 +1,6 @@
 package com.cursee.dyestone.core.registry;
 
+import com.cursee.dyestone.DyestoneForge;
 import com.cursee.dyestone.core.registry.ModBlocks;
 import com.cursee.dyestone.core.registry.ModItems;
 import net.minecraft.core.Registry;
@@ -23,10 +24,11 @@ public class RegistryForge {
             ModBlocks.register(consumer);
         });
         bindForItems(ModItems::register);
+        bind(Registries.CREATIVE_MODE_TAB, ModTabs::register);
     }
 
     private static <T> void bind(ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener((RegisterEvent event) -> {
+        DyestoneForge.EVENT_BUS.addListener((RegisterEvent event) -> {
             if (registry.equals(event.getRegistryKey())) {
                 source.accept((t, rl) -> event.register(registry, rl, () -> t));
             }
@@ -35,7 +37,7 @@ public class RegistryForge {
 
     private static final Set<Item> CREATIVE_MODE_TAB_ITEMS = new LinkedHashSet<>();
     private static void bindForItems(Consumer<BiConsumer<Item, ResourceLocation>> source) {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener((RegisterEvent event) -> {
+        DyestoneForge.EVENT_BUS.addListener((RegisterEvent event) -> {
             if (event.getRegistryKey().equals(Registries.ITEM)) {
                 source.accept((t, rl) -> {
                     CREATIVE_MODE_TAB_ITEMS.add(t);

@@ -1,5 +1,6 @@
 package com.cursee.dyestone.core.registry;
 
+import com.cursee.dyestone.DyestoneNeoForge;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -16,20 +17,18 @@ import java.util.function.Consumer;
 
 public class RegistryNeoForge {
 
-    private static final AtomicReference<IEventBus> MOD_EVENT_BUS = new AtomicReference<IEventBus>(null);
-
     public static void register(IEventBus modEventBus) {
-
-        if (RegistryNeoForge.MOD_EVENT_BUS.get() == null) RegistryNeoForge.MOD_EVENT_BUS.set(modEventBus);
 
         bind(Registries.BLOCK, consumer -> {
             ModBlocks.register(consumer);
         });
         bindForItems(ModItems::register);
+        bind(Registries.CREATIVE_MODE_TAB, ModTabs::register);
+
     }
 
     private static <T> void bind(ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {
-        MOD_EVENT_BUS.get().addListener((RegisterEvent event) -> {
+        DyestoneNeoForge.EVENT_BUS.addListener((RegisterEvent event) -> {
             if (registry.equals(event.getRegistryKey())) {
                 source.accept((t, rl) -> event.register(registry, rl, () -> t));
             }
@@ -38,7 +37,7 @@ public class RegistryNeoForge {
 
     private static final Set<Item> CREATIVE_MODE_TAB_ITEMS = new LinkedHashSet<>();
     private static void bindForItems(Consumer<BiConsumer<Item, ResourceLocation>> source) {
-        MOD_EVENT_BUS.get().addListener((RegisterEvent event) -> {
+        DyestoneNeoForge.EVENT_BUS.addListener((RegisterEvent event) -> {
             if (event.getRegistryKey().equals(Registries.ITEM)) {
                 source.accept((t, rl) -> {
                     CREATIVE_MODE_TAB_ITEMS.add(t);
