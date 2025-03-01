@@ -30,4 +30,9 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
 
         return FMLPaths.GAMEDIR.get().toString();
     }
+
+    @Override
+    public boolean isClientSide() {
+        return FMLLoader.getDist().isClient();
+    }
 }

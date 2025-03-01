@@ -3,9 +3,11 @@
   "minVersion": "0.8",
   "package": "com.cursee.dyestone.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "NeoForgeRedStoneWireBlockMixin"
+  ],
   "client": [
-    "MixinTitleScreen"
+    "NeoForgeTitleScreenMixin"
   ],
   "server": [],
   "injectors": {
