@@ -9,9 +9,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.RedstoneSide;
 
-public class ModPinkRedStoneWireBlock extends ModRedStoneWireBlock {
+public class WhiteDyestoneWireBlock extends AbstractDyestoneWireBlock {
 
-    public ModPinkRedStoneWireBlock(Properties properties) {
+    public WhiteDyestoneWireBlock(Properties properties) {
         super(properties);
     }
 
@@ -22,13 +22,13 @@ public class ModPinkRedStoneWireBlock extends ModRedStoneWireBlock {
                 RedstoneSide redstoneside = (RedstoneSide)state.getValue((Property)PROPERTY_BY_DIRECTION.get(direction));
                 switch (redstoneside) {
                     case UP:
-                        this.spawnParticlesAlongLine(level, random, pos, DyestoneClientNeoForge.PINK_COLORS[i], direction, Direction.UP, -0.5F, 0.5F);
+                        this.spawnParticlesAlongLine(level, random, pos, DyestoneClientNeoForge.WHITE_COLORS[i], direction, Direction.UP, -0.5F, 0.5F);
                     case SIDE:
-                        this.spawnParticlesAlongLine(level, random, pos, DyestoneClientNeoForge.PINK_COLORS[i], Direction.DOWN, direction, 0.0F, 0.5F);
+                        this.spawnParticlesAlongLine(level, random, pos, DyestoneClientNeoForge.WHITE_COLORS[i], Direction.DOWN, direction, 0.0F, 0.5F);
                         break;
                     case NONE:
                     default:
-                        this.spawnParticlesAlongLine(level, random, pos, DyestoneClientNeoForge.PINK_COLORS[i], Direction.DOWN, direction, 0.0F, 0.3F);
+                        this.spawnParticlesAlongLine(level, random, pos, DyestoneClientNeoForge.WHITE_COLORS[i], Direction.DOWN, direction, 0.0F, 0.3F);
                 }
             }
         }

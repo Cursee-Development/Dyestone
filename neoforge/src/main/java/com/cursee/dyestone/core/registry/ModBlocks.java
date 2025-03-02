@@ -6,28 +6,27 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.PushReaction;
 
 import java.util.function.BiConsumer;
 
 public class ModBlocks {
 
-    public static final Block WHITE_DYESTONE_WIRE = new ModWhiteRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block ORANGE_DYESTONE_WIRE = new ModOrangeRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block MAGENTA_DYESTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block LIGHT_BLUE_DYESTONE_WIRE = new ModLightBlueRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block YELLOW_DYESTONE_WIRE = new ModYellowRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block LIME_DYESTONE_WIRE = new ModLimeRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block PINK_DYESTONE_WIRE = new ModPinkRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block GRAY_DYESTONE_WIRE = new ModGrayRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block LIGHT_GRAY_DYESTONE_WIRE = new ModLightGrayRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block CYAN_DYESTONE_WIRE = new ModCyanRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block PURPLE_DYESTONE_WIRE = new ModPurpleRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block BLUE_DYESTONE_WIRE = new ModBlueRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block BROWN_DYESTONE_WIRE = new ModBrownRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block GREEN_DYESTONE_WIRE = new ModGreenRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block RED_DYESTONE_WIRE = new ModRedRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block BLACK_DYESTONE_WIRE = new ModBlackRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block WHITE_DYESTONE_WIRE = new WhiteDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block ORANGE_DYESTONE_WIRE = new OrangeDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block MAGENTA_DYESTONE_WIRE = new AbstractDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block LIGHT_BLUE_DYESTONE_WIRE = new LightBlueDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block YELLOW_DYESTONE_WIRE = new YellowDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block LIME_DYESTONE_WIRE = new LimeDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block PINK_DYESTONE_WIRE = new PinkDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block GRAY_DYESTONE_WIRE = new GrayDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block LIGHT_GRAY_DYESTONE_WIRE = new LightGrayDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block CYAN_DYESTONE_WIRE = new CyanDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block PURPLE_DYESTONE_WIRE = new PurpleDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block BLUE_DYESTONE_WIRE = new BlueDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block BROWN_DYESTONE_WIRE = new BrownDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block GREEN_DYESTONE_WIRE = new GreenDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block RED_DYESTONE_WIRE = new RedDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block BLACK_DYESTONE_WIRE = new BlackDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
 
     public static void register(BiConsumer<Block, ResourceLocation> consumer) {
         consumer.accept(WHITE_DYESTONE_WIRE, Dyestone.identifier("white_dyestone_wire"));

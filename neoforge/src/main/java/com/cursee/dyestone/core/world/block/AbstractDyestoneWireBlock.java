@@ -1,6 +1,5 @@
 package com.cursee.dyestone.core.world.block;
 
-import com.cursee.dyestone.DyestoneClientNeoForge;
 import com.google.common.collect.Sets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,13 +14,12 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.RedstoneSide;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Set;
 
-public class ModRedStoneWireBlock extends RedStoneWireBlock {
+public class AbstractDyestoneWireBlock extends RedStoneWireBlock {
 
-    public ModRedStoneWireBlock(Properties properties) {
+    public AbstractDyestoneWireBlock(Properties properties) {
         super(properties);
     }
 

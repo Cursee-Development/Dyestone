@@ -136,22 +136,22 @@ public class DyestoneClientNeoForge {
 
         @SubscribeEvent
         public static void onRegisterItemColorHandlers(final RegisterColorHandlersEvent.Item event) {
-            event.register((itemStack, i) -> 0xFFFFFF, ModItems.WHITE_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0xFFAA00, ModItems.ORANGE_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0xFF55FF, ModItems.MAGENTA_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0x5555FF, ModItems.LIGHT_BLUE_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0xFFFF55, ModItems.YELLOW_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0x55FF55, ModItems.LIME_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0xF38BAA, ModItems.PINK_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0x555555, ModItems.GRAY_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0xAAAAAA, ModItems.LIGHT_GRAY_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0x55FFFF, ModItems.CYAN_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0xAA00AA, ModItems.PURPLE_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0x0000AA, ModItems.BLUE_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0x835432, ModItems.BROWN_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0x00AA00, ModItems.GREEN_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0xFF5555, ModItems.RED_DYESTONE_WIRE);
-            event.register((itemStack, i) -> 0x000000, ModItems.BLACK_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0xFFFFFF, ModItems.WHITE_DYESTONE);
+            event.register((itemStack, i) -> 0xFFAA00, ModItems.ORANGE_DYESTONE);
+            event.register((itemStack, i) -> 0xFF55FF, ModItems.MAGENTA_DYESTONE);
+            event.register((itemStack, i) -> 0x5555FF, ModItems.LIGHT_BLUE_DYESTONE);
+            event.register((itemStack, i) -> 0xFFFF55, ModItems.YELLOW_DYESTONE);
+            event.register((itemStack, i) -> 0x55FF55, ModItems.LIME_DYESTONE);
+            event.register((itemStack, i) -> 0xF38BAA, ModItems.PINK_DYESTONE);
+            event.register((itemStack, i) -> 0x555555, ModItems.GRAY_DYESTONE);
+            event.register((itemStack, i) -> 0xAAAAAA, ModItems.LIGHT_GRAY_DYESTONE);
+            event.register((itemStack, i) -> 0x55FFFF, ModItems.CYAN_DYESTONE);
+            event.register((itemStack, i) -> 0xAA00AA, ModItems.PURPLE_DYESTONE);
+            event.register((itemStack, i) -> 0x0000AA, ModItems.BLUE_DYESTONE);
+            event.register((itemStack, i) -> 0x835432, ModItems.BROWN_DYESTONE);
+            event.register((itemStack, i) -> 0x00AA00, ModItems.GREEN_DYESTONE);
+            event.register((itemStack, i) -> 0xFF5555, ModItems.RED_DYESTONE);
+            event.register((itemStack, i) -> 0x000000, ModItems.BLACK_DYESTONE);
         }
     }
 }

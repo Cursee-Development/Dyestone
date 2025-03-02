@@ -21,8 +21,5 @@ public class DyestoneNeoForge {
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         DyestoneNeoForge.EVENT_BUS = modEventBus;
         RegistryNeoForge.register(DyestoneNeoForge.EVENT_BUS);
-//        NeoForge.EVENT_BUS.addListener((Consumer<BlockEvent.NeighborNotifyEvent>) event -> {
-//            event.getLevel().gameEvent(GameEvent.BLOCK_CHANGE, event.getPos(), GameEvent.Context.of(event.getState()));
-//        });
     }
 }
