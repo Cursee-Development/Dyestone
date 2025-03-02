@@ -35,8 +35,6 @@ neoForge {
         }
     }
     dependencies {
-        implementation "curse.maven:monolib-968432:6123990"
-        implementation "curse.maven:jei-238222:5846880"
     }
 }
 
