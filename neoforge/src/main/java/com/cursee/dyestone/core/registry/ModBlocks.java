@@ -13,7 +13,7 @@ public class ModBlocks {
 
     public static final Block WHITE_DYESTONE_WIRE = new WhiteDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
     public static final Block ORANGE_DYESTONE_WIRE = new OrangeDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
-    public static final Block MAGENTA_DYESTONE_WIRE = new AbstractDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block MAGENTA_DYESTONE_WIRE = new MagentaDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
     public static final Block LIGHT_BLUE_DYESTONE_WIRE = new LightBlueDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
     public static final Block YELLOW_DYESTONE_WIRE = new YellowDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
     public static final Block LIME_DYESTONE_WIRE = new LimeDyestoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
