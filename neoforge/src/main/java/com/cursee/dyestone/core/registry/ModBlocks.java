@@ -1,6 +1,9 @@
 package com.cursee.dyestone.core.registry;
 
 import com.cursee.dyestone.Dyestone;
+import com.cursee.dyestone.core.world.block.ModBlueRedStoneWireBlock;
+import com.cursee.dyestone.core.world.block.ModGreenRedStoneWireBlock;
+import com.cursee.dyestone.core.world.block.ModRedRedStoneWireBlock;
 import com.cursee.dyestone.core.world.block.ModRedStoneWireBlock;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -23,11 +26,10 @@ public class ModBlocks {
     public static final Block DYED_LIGHT_GRAY_REDSTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
     public static final Block DYED_CYAN_REDSTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
     public static final Block DYED_PURPLE_REDSTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_BLUE_REDSTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
+    public static final Block DYED_BLUE_REDSTONE_WIRE = new ModBlueRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
     public static final Block DYED_BROWN_REDSTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-//    public static final Block DYED_GREEN_REDSTONE_WIRE = new ModRedStoneWireBlock()(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY).isRedstoneConductor((blockState, blockGetter, blockPos) -> false));
-    public static final Block DYED_GREEN_REDSTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_RED_REDSTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
+    public static final Block DYED_GREEN_REDSTONE_WIRE = new ModGreenRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
+    public static final Block DYED_RED_REDSTONE_WIRE = new ModRedRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
     public static final Block DYED_BLACK_REDSTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
 
     public static void register(BiConsumer<Block, ResourceLocation> consumer) {
