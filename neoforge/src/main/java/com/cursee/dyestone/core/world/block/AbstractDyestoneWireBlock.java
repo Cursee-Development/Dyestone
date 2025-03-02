@@ -38,8 +38,11 @@ public class AbstractDyestoneWireBlock extends RedStoneWireBlock {
     protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
         if (!level.isClientSide) {
             if (state.canSurvive(level, pos)) {
-                this.updatePowerStrength(level, pos, state);
-            } else {
+                RedStoneWireBlock redStoneWireBlock = state.getBlock() instanceof RedStoneWireBlock ? (RedStoneWireBlock) state.getBlock() : null;
+                if (redStoneWireBlock == null) this.updatePowerStrength(level, pos, state);
+                else redStoneWireBlock.updatePowerStrength(level, pos, state);
+            }
+            else {
                 dropResources(state, level, pos);
                 level.removeBlock(pos, false);
             }
@@ -107,21 +110,21 @@ public class AbstractDyestoneWireBlock extends RedStoneWireBlock {
     @Override
     public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, @Nullable Direction direction) {
 
-        return true;
+//         return true;
 
-//        if (state.getBlock() instanceof RedStoneWireBlock || state.is(Blocks.REDSTONE_WIRE) || state.is(this)) {
-//            return true;
-//        }
-//        else if (state.is(Blocks.REPEATER)) {
-//            Direction facing = (Direction)state.getValue(RepeaterBlock.FACING);
-//            return facing == direction || facing.getOpposite() == direction;
-//        }
-//        else if (state.is(Blocks.OBSERVER)) {
-//            return direction == state.getValue(ObserverBlock.FACING);
-//        }
-//        else {
-//            return state.isSignalSource() && direction != null;
-//        }
+        if (state.getBlock() instanceof RedStoneWireBlock) {
+            return true;
+        }
+        else if (state.is(Blocks.REPEATER)) {
+            Direction facing = (Direction)state.getValue(RepeaterBlock.FACING);
+            return facing == direction || facing.getOpposite() == direction;
+        }
+        else if (state.is(Blocks.OBSERVER)) {
+            return direction == state.getValue(ObserverBlock.FACING);
+        }
+        else {
+            return state.isSignalSource() && direction != null;
+        }
     }
 
     public void spawnParticlesAlongLine(Level level, RandomSource random, BlockPos pos, Vec3 particleVec, Direction xDirection, Direction zDirection, float min, float max) {
@@ -136,29 +139,12 @@ public class AbstractDyestoneWireBlock extends RedStoneWireBlock {
         }
     }
 
-//    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-//        int i = (Integer)state.getValue(POWER);
-//        if (i != 0) {
-//            for(Direction direction : Direction.Plane.HORIZONTAL) {
-//                RedstoneSide redstoneside = (RedstoneSide)state.getValue((Property)PROPERTY_BY_DIRECTION.get(direction));
-//                switch (redstoneside) {
-//                    case UP:
-//                        this.spawnParticlesAlongLine(level, random, pos, DyestoneClientNeoForge.ORIGINAL_COLORS[i], direction, Direction.UP, -0.5F, 0.5F);
-//                    case SIDE:
-//                        this.spawnParticlesAlongLine(level, random, pos, DyestoneClientNeoForge.ORIGINAL_COLORS[i], Direction.DOWN, direction, 0.0F, 0.5F);
-//                        break;
-//                    case NONE:
-//                    default:
-//                        this.spawnParticlesAlongLine(level, random, pos, DyestoneClientNeoForge.ORIGINAL_COLORS[i], Direction.DOWN, direction, 0.0F, 0.3F);
-//                }
-//            }
-//        }
-//
-//    }
-
     @Override
     public void updatePowerStrength(Level level, BlockPos pos, BlockState state) {
-        int i = this.calculateTargetStrength(level, pos);
+
+        RedStoneWireBlock redstoneWire = state.getBlock() instanceof RedStoneWireBlock ? (RedStoneWireBlock) state.getBlock() : null;
+
+        int i = redstoneWire == null ? this.calculateTargetStrength(level, pos) : redstoneWire.calculateTargetStrength(level, pos);
         if ((Integer)state.getValue(POWER) != i) {
             if (level.getBlockState(pos) == state) {
                 level.setBlock(pos, (BlockState)state.setValue(POWER, i), Block.UPDATE_CLIENTS);
@@ -181,48 +167,6 @@ public class AbstractDyestoneWireBlock extends RedStoneWireBlock {
     private static boolean isDot(BlockState state) {
         return !((RedstoneSide)state.getValue(NORTH)).isConnected() && !((RedstoneSide)state.getValue(SOUTH)).isConnected() && !((RedstoneSide)state.getValue(EAST)).isConnected() && !((RedstoneSide)state.getValue(WEST)).isConnected();
     }
-
-//    private boolean canSurviveOn(BlockGetter level, BlockPos pos, BlockState state) {
-//        return state.isFaceSturdy(level, pos, Direction.UP) || state.is(Blocks.HOPPER);
-//    }
-
-//    private RedstoneSide getConnectingSide(BlockGetter level, BlockPos pos, Direction direction, boolean nonNormalCubeAbove) {
-//        BlockPos blockpos = pos.relative(direction);
-//        BlockState blockstate = level.getBlockState(blockpos);
-//        if (nonNormalCubeAbove) {
-//            boolean flag = blockstate.getBlock() instanceof TrapDoorBlock || this.canSurviveOn(level, blockpos, blockstate);
-//            if (flag && level.getBlockState(blockpos.above()).canRedstoneConnectTo(level, blockpos.above(), (Direction)null)) {
-//                if (blockstate.isFaceSturdy(level, blockpos, direction.getOpposite())) {
-//                    return RedstoneSide.UP;
-//                }
-//
-//                return RedstoneSide.SIDE;
-//            }
-//        }
-//
-//        if (blockstate.canRedstoneConnectTo(level, blockpos, direction)) {
-//            return RedstoneSide.SIDE;
-//        } else if (blockstate.isRedstoneConductor(level, blockpos)) {
-//            return RedstoneSide.NONE;
-//        } else {
-//            BlockPos blockPosBelow = blockpos.below();
-//            return level.getBlockState(blockPosBelow).canRedstoneConnectTo(level, blockPosBelow, (Direction)null) ? RedstoneSide.SIDE : RedstoneSide.NONE;
-//        }
-//    }
-
-//    @Override
-//    public BlockState getMissingConnections(BlockGetter level, BlockState state, BlockPos pos) {
-//        boolean flag = !level.getBlockState(pos.above()).isRedstoneConductor(level, pos);
-//
-//        for(Direction direction : Direction.Plane.HORIZONTAL) {
-//            if (!((RedstoneSide)state.getValue((Property)PROPERTY_BY_DIRECTION.get(direction))).isConnected()) {
-//                RedstoneSide redstoneside = this.getConnectingSide(level, pos, direction, flag);
-//                state = (BlockState)state.setValue((Property)PROPERTY_BY_DIRECTION.get(direction), redstoneside);
-//            }
-//        }
-//
-//        return state;
-//    }
 
     @Override
     public BlockState getConnectionState(BlockGetter level, BlockState state, BlockPos pos) {
@@ -256,23 +200,21 @@ public class AbstractDyestoneWireBlock extends RedStoneWireBlock {
 
     @Override
     public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean isMoving) {
-        RedStoneWireBlock instance = (RedStoneWireBlock) (Object) this;
 
         if (!oldState.is(state.getBlock()) && (state.getBlock() instanceof RedStoneWireBlock redStoneWireBlock) && !level.isClientSide) {
-            instance.updatePowerStrength(level, pos, state);
+            redStoneWireBlock.updatePowerStrength(level, pos, state);
 
             for(Direction direction : Direction.Plane.VERTICAL) {
                 level.updateNeighborsAt(pos.relative(direction), redStoneWireBlock);
             }
 
-            instance.updateNeighborsOfNeighboringWires(level, pos);
+            redStoneWireBlock.updateNeighborsOfNeighboringWires(level, pos);
         }
 
     }
 
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
-        RedStoneWireBlock instance = (RedStoneWireBlock) (Object) this;
 
         if (!isMoving && (state.getBlock() instanceof RedStoneWireBlock redStoneWireBlock)) {
             if (state.hasBlockEntity() && (!state.is(newState.getBlock()) || !newState.hasBlockEntity())) {
@@ -283,8 +225,8 @@ public class AbstractDyestoneWireBlock extends RedStoneWireBlock {
                     level.updateNeighborsAt(pos.relative(direction), redStoneWireBlock);
                 }
 
-                instance.updatePowerStrength(level, pos, state);
-                instance.updateNeighborsOfNeighboringWires(level, pos);
+                redStoneWireBlock.updatePowerStrength(level, pos, state);
+                redStoneWireBlock.updateNeighborsOfNeighboringWires(level, pos);
             }
         }
 
