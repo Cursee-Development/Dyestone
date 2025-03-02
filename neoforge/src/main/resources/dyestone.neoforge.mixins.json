@@ -7,7 +7,6 @@
     "NeoForgeRedStoneWireBlockMixin"
   ],
   "client": [
-    "NeoForgeTitleScreenMixin"
   ],
   "server": [],
   "injectors": {
