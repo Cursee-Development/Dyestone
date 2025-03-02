@@ -11,25 +11,25 @@ import java.util.function.BiConsumer;
 public class ModTabs {
 
     public static final CreativeModeTab DYESTONE_TAB = CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
-            .icon(() -> new ItemStack(ModItems.DYED_RED_REDSTONE_WIRE))
+            .icon(() -> new ItemStack(ModItems.RED_DYESTONE_WIRE))
             .title(Component.translatable("itemGroup.dyestone"))
             .displayItems((itemDisplayParameters, output) -> {
-                output.accept(ModItems.DYED_WHITE_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_ORANGE_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_MAGENTA_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_LIGHT_BLUE_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_YELLOW_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_LIME_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_PINK_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_GRAY_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_LIGHT_GRAY_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_CYAN_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_PURPLE_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_BLUE_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_BROWN_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_GREEN_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_RED_REDSTONE_WIRE);
-                output.accept(ModItems.DYED_BLACK_REDSTONE_WIRE);
+                output.accept(ModItems.WHITE_DYESTONE_WIRE);
+                output.accept(ModItems.ORANGE_DYESTONE_WIRE);
+                output.accept(ModItems.MAGENTA_DYESTONE_WIRE);
+                output.accept(ModItems.LIGHT_BLUE_DYESTONE_WIRE);
+                output.accept(ModItems.YELLOW_DYESTONE_WIRE);
+                output.accept(ModItems.LIME_DYESTONE_WIRE);
+                output.accept(ModItems.PINK_DYESTONE_WIRE);
+                output.accept(ModItems.GRAY_DYESTONE_WIRE);
+                output.accept(ModItems.LIGHT_GRAY_DYESTONE_WIRE);
+                output.accept(ModItems.CYAN_DYESTONE_WIRE);
+                output.accept(ModItems.PURPLE_DYESTONE_WIRE);
+                output.accept(ModItems.BLUE_DYESTONE_WIRE);
+                output.accept(ModItems.BROWN_DYESTONE_WIRE);
+                output.accept(ModItems.GREEN_DYESTONE_WIRE);
+                output.accept(ModItems.RED_DYESTONE_WIRE);
+                output.accept(ModItems.BLACK_DYESTONE_WIRE);
             }).build();
 
     public static void register(BiConsumer<CreativeModeTab, ResourceLocation> consumer) {

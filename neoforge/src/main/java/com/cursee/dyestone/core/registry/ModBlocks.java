@@ -4,7 +4,7 @@ import com.cursee.dyestone.Dyestone;
 import com.cursee.dyestone.core.world.block.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RedStoneWireBlock;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
 
@@ -12,39 +12,39 @@ import java.util.function.BiConsumer;
 
 public class ModBlocks {
 
-    public static final Block DYED_WHITE_REDSTONE_WIRE = new ModWhiteRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY).isRedstoneConductor((blockState, blockGetter, blockPos) -> true));
-    public static final Block DYED_ORANGE_REDSTONE_WIRE = new ModOrangeRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_MAGENTA_REDSTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_LIGHT_BLUE_REDSTONE_WIRE = new ModLightBlueRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_YELLOW_REDSTONE_WIRE = new ModYellowRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_LIME_REDSTONE_WIRE = new ModLimeRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_PINK_REDSTONE_WIRE = new ModPinkRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_GRAY_REDSTONE_WIRE = new ModGrayRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_LIGHT_GRAY_REDSTONE_WIRE = new ModLightGrayRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_CYAN_REDSTONE_WIRE = new ModCyanRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_PURPLE_REDSTONE_WIRE = new ModPurpleRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_BLUE_REDSTONE_WIRE = new ModBlueRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_BROWN_REDSTONE_WIRE = new ModBrownRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_GREEN_REDSTONE_WIRE = new ModGreenRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_RED_REDSTONE_WIRE = new ModRedRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
-    public static final Block DYED_BLACK_REDSTONE_WIRE = new ModBlackRedStoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak().pushReaction(PushReaction.DESTROY));
+    public static final Block WHITE_DYESTONE_WIRE = new ModWhiteRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block ORANGE_DYESTONE_WIRE = new ModOrangeRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block MAGENTA_DYESTONE_WIRE = new ModRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block LIGHT_BLUE_DYESTONE_WIRE = new ModLightBlueRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block YELLOW_DYESTONE_WIRE = new ModYellowRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block LIME_DYESTONE_WIRE = new ModLimeRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block PINK_DYESTONE_WIRE = new ModPinkRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block GRAY_DYESTONE_WIRE = new ModGrayRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block LIGHT_GRAY_DYESTONE_WIRE = new ModLightGrayRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block CYAN_DYESTONE_WIRE = new ModCyanRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block PURPLE_DYESTONE_WIRE = new ModPurpleRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block BLUE_DYESTONE_WIRE = new ModBlueRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block BROWN_DYESTONE_WIRE = new ModBrownRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block GREEN_DYESTONE_WIRE = new ModGreenRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block RED_DYESTONE_WIRE = new ModRedRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
+    public static final Block BLACK_DYESTONE_WIRE = new ModBlackRedStoneWireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE));
 
     public static void register(BiConsumer<Block, ResourceLocation> consumer) {
-        consumer.accept(DYED_WHITE_REDSTONE_WIRE, Dyestone.identifier("dyed_white_redstone_wire"));
-        consumer.accept(DYED_ORANGE_REDSTONE_WIRE, Dyestone.identifier("dyed_orange_redstone_wire"));
-        consumer.accept(DYED_MAGENTA_REDSTONE_WIRE, Dyestone.identifier("dyed_magenta_redstone_wire"));
-        consumer.accept(DYED_LIGHT_BLUE_REDSTONE_WIRE, Dyestone.identifier("dyed_light_blue_redstone_wire"));
-        consumer.accept(DYED_YELLOW_REDSTONE_WIRE, Dyestone.identifier("dyed_yellow_redstone_wire"));
-        consumer.accept(DYED_LIME_REDSTONE_WIRE, Dyestone.identifier("dyed_lime_redstone_wire"));
-        consumer.accept(DYED_PINK_REDSTONE_WIRE, Dyestone.identifier("dyed_pink_redstone_wire"));
-        consumer.accept(DYED_GRAY_REDSTONE_WIRE, Dyestone.identifier("dyed_gray_redstone_wire"));
-        consumer.accept(DYED_LIGHT_GRAY_REDSTONE_WIRE, Dyestone.identifier("dyed_light_gray_redstone_wire"));
-        consumer.accept(DYED_CYAN_REDSTONE_WIRE, Dyestone.identifier("dyed_cyan_redstone_wire"));
-        consumer.accept(DYED_PURPLE_REDSTONE_WIRE, Dyestone.identifier("dyed_purple_redstone_wire"));
-        consumer.accept(DYED_BLUE_REDSTONE_WIRE, Dyestone.identifier("dyed_blue_redstone_wire"));
-        consumer.accept(DYED_BROWN_REDSTONE_WIRE, Dyestone.identifier("dyed_brown_redstone_wire"));
-        consumer.accept(DYED_GREEN_REDSTONE_WIRE, Dyestone.identifier("dyed_green_redstone_wire"));
-        consumer.accept(DYED_RED_REDSTONE_WIRE, Dyestone.identifier("dyed_red_redstone_wire"));
-        consumer.accept(DYED_BLACK_REDSTONE_WIRE, Dyestone.identifier("dyed_black_redstone_wire"));
+        consumer.accept(WHITE_DYESTONE_WIRE, Dyestone.identifier("white_dyestone_wire"));
+        consumer.accept(ORANGE_DYESTONE_WIRE, Dyestone.identifier("orange_dyestone_wire"));
+        consumer.accept(MAGENTA_DYESTONE_WIRE, Dyestone.identifier("magenta_dyestone_wire"));
+        consumer.accept(LIGHT_BLUE_DYESTONE_WIRE, Dyestone.identifier("light_blue_dyestone_wire"));
+        consumer.accept(YELLOW_DYESTONE_WIRE, Dyestone.identifier("yellow_dyestone_wire"));
+        consumer.accept(LIME_DYESTONE_WIRE, Dyestone.identifier("lime_dyestone_wire"));
+        consumer.accept(PINK_DYESTONE_WIRE, Dyestone.identifier("pink_dyestone_wire"));
+        consumer.accept(GRAY_DYESTONE_WIRE, Dyestone.identifier("gray_dyestone_wire"));
+        consumer.accept(LIGHT_GRAY_DYESTONE_WIRE, Dyestone.identifier("light_gray_dyestone_wire"));
+        consumer.accept(CYAN_DYESTONE_WIRE, Dyestone.identifier("cyan_dyestone_wire"));
+        consumer.accept(PURPLE_DYESTONE_WIRE, Dyestone.identifier("purple_dyestone_wire"));
+        consumer.accept(BLUE_DYESTONE_WIRE, Dyestone.identifier("blue_dyestone_wire"));
+        consumer.accept(BROWN_DYESTONE_WIRE, Dyestone.identifier("brown_dyestone_wire"));
+        consumer.accept(GREEN_DYESTONE_WIRE, Dyestone.identifier("green_dyestone_wire"));
+        consumer.accept(RED_DYESTONE_WIRE, Dyestone.identifier("red_dyestone_wire"));
+        consumer.accept(BLACK_DYESTONE_WIRE, Dyestone.identifier("black_dyestone_wire"));
     }
 }

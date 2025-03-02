@@ -22,12 +22,12 @@ public class DyestoneClientNeoForge {
         return Util.make(new Vec3[16], vec3Array -> {
             for (int power = 0; power <= 15; ++power) {
                 float percentage = power / 15.0f;
-                float offModifier = percentage != 0.0f ? 0.5f : 0.3f;
+                float offModifier = percentage != 0.0f ? 0.6f : 0.4f;
 
                 vec3Array[power] = new Vec3(
-                        minToOne(rgbVector.x * ((percentage * 0.6f) + offModifier)),
-                        minToOne(rgbVector.y * ((percentage * 0.6f) + offModifier)),
-                        minToOne(rgbVector.z * ((percentage * 0.6f) + offModifier))
+                        minToOne(rgbVector.x * ((percentage * 0.8f) + offModifier)),
+                        minToOne(rgbVector.y * ((percentage * 0.8f) + offModifier)),
+                        minToOne(rgbVector.z * ((percentage * 0.8f) + offModifier))
                 );
             }
         });
@@ -85,73 +85,73 @@ public class DyestoneClientNeoForge {
         @SubscribeEvent
         public static void onRegisterBlockColorHandlers(final RegisterColorHandlersEvent.Block event) {
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(WHITE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_WHITE_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_WHITE_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(WHITE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.WHITE_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.WHITE_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(ORANGE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_ORANGE_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_ORANGE_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(ORANGE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.ORANGE_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.ORANGE_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(MAGENTA_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_MAGENTA_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_MAGENTA_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(MAGENTA_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.MAGENTA_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.MAGENTA_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(LIGHT_BLUE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_LIGHT_BLUE_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_LIGHT_BLUE_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(LIGHT_BLUE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.LIGHT_BLUE_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.LIGHT_BLUE_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(YELLOW_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_YELLOW_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_YELLOW_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(YELLOW_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.YELLOW_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.YELLOW_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(LIME_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_LIME_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_LIME_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(LIME_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.LIME_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.LIME_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(PINK_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_PINK_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_PINK_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(PINK_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.PINK_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.PINK_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(GRAY_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_GRAY_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_GRAY_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(GRAY_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.GRAY_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.GRAY_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(LIGHT_GRAY_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_LIGHT_GRAY_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_LIGHT_GRAY_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(LIGHT_GRAY_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.LIGHT_GRAY_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.LIGHT_GRAY_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(CYAN_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_CYAN_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_CYAN_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(CYAN_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.CYAN_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.CYAN_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(PURPLE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_PURPLE_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_PURPLE_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(PURPLE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.PURPLE_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.PURPLE_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(BLUE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_BLUE_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_BLUE_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(BLUE_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.BLUE_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.BLUE_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(BROWN_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_BROWN_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_BROWN_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(BROWN_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.BROWN_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.BROWN_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(GREEN_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_GREEN_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_GREEN_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(GREEN_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.GREEN_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.GREEN_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(RED_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_RED_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_RED_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(RED_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.RED_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.RED_DYESTONE_WIRE);
 
-            event.register((state, tintGetter, pos, i) -> getColorForPower(BLACK_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.DYED_BLACK_REDSTONE_WIRE);
-            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.DYED_BLACK_REDSTONE_WIRE);
+            event.register((state, tintGetter, pos, i) -> getColorForPower(BLACK_COLORS, state.getValue(RedStoneWireBlock.POWER)), ModBlocks.BLACK_DYESTONE_WIRE);
+            event.getBlockColors().addColoringState(RedStoneWireBlock.POWER, ModBlocks.BLACK_DYESTONE_WIRE);
         }
 
         @SubscribeEvent
         public static void onRegisterItemColorHandlers(final RegisterColorHandlersEvent.Item event) {
-            event.register((itemStack, i) -> 0xFFFFFF, ModItems.DYED_WHITE_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0xFFAA00, ModItems.DYED_ORANGE_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0xFF55FF, ModItems.DYED_MAGENTA_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0x5555FF, ModItems.DYED_LIGHT_BLUE_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0xFFFF55, ModItems.DYED_YELLOW_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0x55FF55, ModItems.DYED_LIME_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0xF38BAA, ModItems.DYED_PINK_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0x555555, ModItems.DYED_GRAY_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0xAAAAAA, ModItems.DYED_LIGHT_GRAY_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0x55FFFF, ModItems.DYED_CYAN_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0xAA00AA, ModItems.DYED_PURPLE_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0x0000AA, ModItems.DYED_BLUE_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0x835432, ModItems.DYED_BROWN_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0x00AA00, ModItems.DYED_GREEN_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0xFF5555, ModItems.DYED_RED_REDSTONE_WIRE);
-            event.register((itemStack, i) -> 0x000000, ModItems.DYED_BLACK_REDSTONE_WIRE);
+            event.register((itemStack, i) -> 0xFFFFFF, ModItems.WHITE_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0xFFAA00, ModItems.ORANGE_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0xFF55FF, ModItems.MAGENTA_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0x5555FF, ModItems.LIGHT_BLUE_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0xFFFF55, ModItems.YELLOW_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0x55FF55, ModItems.LIME_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0xF38BAA, ModItems.PINK_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0x555555, ModItems.GRAY_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0xAAAAAA, ModItems.LIGHT_GRAY_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0x55FFFF, ModItems.CYAN_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0xAA00AA, ModItems.PURPLE_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0x0000AA, ModItems.BLUE_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0x835432, ModItems.BROWN_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0x00AA00, ModItems.GREEN_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0xFF5555, ModItems.RED_DYESTONE_WIRE);
+            event.register((itemStack, i) -> 0x000000, ModItems.BLACK_DYESTONE_WIRE);
         }
     }
 }
