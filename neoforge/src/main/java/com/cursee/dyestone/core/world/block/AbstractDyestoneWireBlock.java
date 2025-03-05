@@ -1,5 +1,6 @@
 package com.cursee.dyestone.core.world.block;
 
+import com.cursee.dyestone.core.CommonConfigValues;
 import com.google.common.collect.Sets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -112,7 +113,10 @@ public class AbstractDyestoneWireBlock extends RedStoneWireBlock {
 
 //         return true;
 
-        if (state.getBlock() instanceof RedStoneWireBlock) {
+        if (CommonConfigValues.all_dyestone_connects && state.getBlock() instanceof RedStoneWireBlock) {
+            return true;
+        }
+        else if (!CommonConfigValues.all_dyestone_connects && (state.is(this) || state.is(Blocks.REDSTONE_WIRE))) {
             return true;
         }
         else if (state.is(Blocks.REPEATER)) {

@@ -1,5 +1,6 @@
 package com.cursee.dyestone;
 
+import com.cursee.dyestone.core.CommonConfigValues;
 import com.cursee.dyestone.core.registry.ModBlocks;
 import com.cursee.dyestone.core.registry.ModItems;
 import net.minecraft.Util;
@@ -11,6 +12,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public class DyestoneClientNeoForge {
 
@@ -70,6 +72,12 @@ public class DyestoneClientNeoForge {
     public static int getColorForPower(Vec3[] colorVec3Array, int pPower) {
         Vec3 vec3 = colorVec3Array[pPower];
         return Mth.color((float)vec3.x(), (float)vec3.y(), (float)vec3.z());
+    }
+
+    public static void handleConfigSyncOnMain(final DyestoneNeoForge.ConfigSyncS2CPacket packet, final IPayloadContext context) {
+        context.enqueueWork(() -> {
+            CommonConfigValues.all_dyestone_connects = packet.all_dyestone_connects();
+        });
     }
 
     @EventBusSubscriber(modid = Constants.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
